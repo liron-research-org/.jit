@@ -19,3 +19,4 @@ override:
       jobs:
         static-code-analysis-csharp:
           enabled: true
+
