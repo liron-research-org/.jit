@@ -67,7 +67,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:main
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:sc-16229-semgrep-remediation-suggestions
         security_control_args: --json --config=/semgrep-java-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -84,7 +84,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:main
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:sc-16229-semgrep-remediation-suggestions
         security_control_args: --json --config=/semgrep-ts-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -101,7 +101,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:main
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:sc-16229-semgrep-remediation-suggestions
         security_control_args: --json --config=/semgrep-kotlin-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -118,7 +118,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:sc-16229-semgrep-remediation-suggestions
         security_control_args: --json --config=/semgrep-python-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
