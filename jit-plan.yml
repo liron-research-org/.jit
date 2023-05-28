@@ -17,6 +17,6 @@ override:
   workflows:
     sast:
       jobs:
-        static-code-analysis-csharp:
+        static-code-analysis-swift:
           enabled: true
 
