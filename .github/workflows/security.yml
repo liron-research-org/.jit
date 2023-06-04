@@ -24,24 +24,6 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  remediation-pr:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: remediation-pr
-      uses: jitsecurity-controls/jit-github-action@v2.2
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        
-        security_control: ghcr.io/jitsecurity-controls/open-remediation-pr-alpine:main
-        security_control_args: --github-token ${{fromJSON(github.event.inputs.client_payload).payload.github_token}} --fix-pr-config ${{fromJSON(github.event.inputs.client_payload).payload.fix_pr_config}} --output-file \$REPORT_FILE
-        security_control_output_file: /opt/code/jit-report/results.json
-        dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
   secret-detection:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection'
     runs-on: ubuntu-20.04
@@ -60,200 +42,56 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  static-code-analysis-csharp:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-csharp'
+  software-component-analysis:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     steps:
-    - name: semgrep
+    - name: osv-scanner
       uses: jitsecurity-controls/jit-github-action@v2.2
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
-        security_control_args: --json --config=/semgrep-csharp-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
+        security_control: ghcr.io/jitsecurity-controls/control-osv-scanner-alpine:latest
+        security_control_args: --recursive \${WORK_DIR:-.}
         
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  static-code-analysis-go:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-go'
+  software-component-analysis-go:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-go'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     steps:
-    - name: gosec
+    - name: nancy
       uses: jitsecurity-controls/jit-github-action@v2.2
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-gosec-alpine:latest
-        security_control_args: -fmt=json -severity=high \${WORK_DIR:-.}/...
+        security_control: ghcr.io/jitsecurity-controls/control-nancy-alpine:latest
+        security_control_args: 
         
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  static-code-analysis-java:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-java'
+  software-component-analysis-js:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-js'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     steps:
-    - name: semgrep
+    - name: npm-audit
       uses: jitsecurity-controls/jit-github-action@v2.2
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
-        security_control_args: --json --config=/semgrep-java-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
-        
-        dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
-  static-code-analysis-js:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-js'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: semgrep
-      uses: jitsecurity-controls/jit-github-action@v2.2
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
-        security_control_args: --json --config=/semgrep-ts-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
-        
-        dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
-  static-code-analysis-kotlin:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-kotlin'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: semgrep
-      uses: jitsecurity-controls/jit-github-action@v2.2
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
-        security_control_args: --json --config=/semgrep-kotlin-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
-        
-        dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
-  static-code-analysis-python-semgrep:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-python-semgrep'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: semgrep
-      uses: jitsecurity-controls/jit-github-action@v2.2
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
-        security_control_args: --json --config=/semgrep-python-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
-        
-        dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
-  static-code-analysis-scala:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-scala'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: semgrep
-      uses: jitsecurity-controls/jit-github-action@v2.2
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
-        security_control_args: --json --config=/semgrep-scala-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
-        
-        dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
-  static-code-analysis-snyk-go:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-snyk-go'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: snyk-code
-      uses: jitsecurity-controls/jit-github-action@v2.2
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        container_args: -e SNYK_TOKEN=${{ secrets.SNYK_TOKEN }}
-        security_control: ghcr.io/jitsecurity-controls/control-snyk-code-alpine:main
-        security_control_args: code test --json
-        
-        dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
-  static-code-analysis-snyk-js:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-snyk-js'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: snyk-code
-      uses: jitsecurity-controls/jit-github-action@v2.2
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        container_args: -e SNYK_TOKEN=${{ secrets.SNYK_TOKEN }}
-        security_control: ghcr.io/jitsecurity-controls/control-snyk-code-alpine:main
-        security_control_args: code test --json
-        
-        dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
-  static-code-analysis-snyk-python:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-snyk-python'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: snyk-code
-      uses: jitsecurity-controls/jit-github-action@v2.2
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        container_args: -e SNYK_TOKEN=${{ secrets.SNYK_TOKEN }}
-        security_control: ghcr.io/jitsecurity-controls/control-snyk-code-alpine:main
-        security_control_args: code test --json
-        
-        dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
-  static-code-analysis-swift:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-swift'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: semgrep
-      uses: jitsecurity-controls/jit-github-action@v2.2
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
-        security_control_args: --json --config=/semgrep-swift-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
-        
+        security_control: ghcr.io/jitsecurity-controls/control-npm-audit-slim:latest
+        security_control_args: 
+        security_control_output_file: /code/jit-report/enriched-audit-results.json
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
