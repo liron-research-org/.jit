@@ -17,7 +17,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-enrichment-slim:main
+        security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:main
         security_control_args: --path \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -53,7 +53,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-gitleaks-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-gitleaks-alpine:latest
         security_control_args: detect --config \$GITLEAKS_CONFIG_FILE_PATH --source \${WORK_DIR:-.} -v --report-format json --report-path \$REPORT_FILE --redact --no-git --exit-code 0
         security_control_output_file: /tmp/report.json
         dispatch_type: workflow
@@ -71,7 +71,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
         security_control_args: --json --config=/semgrep-csharp-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -89,7 +89,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-gosec-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-gosec-alpine:latest
         security_control_args: -fmt=json -severity=high \${WORK_DIR:-.}/...
         
         dispatch_type: workflow
@@ -107,7 +107,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
         security_control_args: --json --config=/semgrep-java-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -125,7 +125,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
         security_control_args: --json --config=/semgrep-ts-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -143,7 +143,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
         security_control_args: --json --config=/semgrep-kotlin-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -161,7 +161,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
         security_control_args: --json --config=/semgrep-python-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -179,7 +179,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
         security_control_args: --json --config=/semgrep-rust-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -197,7 +197,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
         security_control_args: --json --config=/semgrep-scala-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -215,7 +215,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
         security_control_args: --json --config=/semgrep-swift-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
