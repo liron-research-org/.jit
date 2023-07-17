@@ -6,7 +6,7 @@ on:
           description: The Client payload
           required: true
 jobs:
-  :
+  enrich-workflow-enrichment-code:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-enrichment-code'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -25,7 +25,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  remediation-pr-workflow-remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -44,7 +44,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  secret-detection-workflow-secret-detection:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-secret-detection'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -63,7 +63,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  static-code-analysis-csharp-workflow-sast:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-csharp' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -82,7 +82,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  static-code-analysis-go-workflow-sast:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-go' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -101,7 +101,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  static-code-analysis-java-workflow-sast:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-java' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -120,7 +120,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  static-code-analysis-js-workflow-sast:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-js' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -139,7 +139,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  static-code-analysis-kotlin-workflow-sast:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-kotlin' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -158,7 +158,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  static-code-analysis-python-semgrep-workflow-sast:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-python-semgrep' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -177,7 +177,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  static-code-analysis-rust-workflow-sast:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-rust' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -196,7 +196,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  static-code-analysis-scala-workflow-sast:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-scala' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -215,7 +215,7 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
-  :
+  static-code-analysis-swift-workflow-sast:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-swift' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
