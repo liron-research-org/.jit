@@ -37,9 +37,6 @@ items:
   - name: Limit number of organization admins
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-max-admins.yml@latest
-  - name: Protect code changes made by workflows
-    uses: >-
-      jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
 override:
   workflows:
     sast:
