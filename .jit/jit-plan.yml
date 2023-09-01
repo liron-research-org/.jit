@@ -22,12 +22,6 @@ items:
   - name: Set desired branch protection configuration
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-desired-branch-protection.yml@latest
-  - name: Limit creation of public repos
-    uses: >-
-      jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
-  - name: Enable multi-factor authentication for members
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
 override:
   workflows:
     sast:
