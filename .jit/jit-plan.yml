@@ -8,9 +8,6 @@ references:
   - https://www.jit.io
 tags: []
 items:
-  - name: Protect code changes by properly setting branch protection
-    uses: >-
-      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
