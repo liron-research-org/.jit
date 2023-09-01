@@ -19,9 +19,6 @@ items:
   - name: Protect from code tampering by using signed commits
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-tampering.yml@latest
-  - name: Set desired branch protection configuration
-    uses: >-
-      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-desired-branch-protection.yml@latest
 override:
   workflows:
     sast:
