@@ -31,9 +31,6 @@ items:
   - name: Verify there are no dormant users
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
-  - name: Limit user permissions to follow least privilege principle
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
 override:
   workflows:
     sast:
