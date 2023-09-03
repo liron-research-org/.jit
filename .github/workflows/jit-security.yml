@@ -37,11 +37,11 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     steps:
-    - name: gitleaks
-      uses: jitsecurity-controls/jit-github-action@v4.0.1
+    - name: trufflehog
+      uses: jitsecurity-controls/jit-github-action@v3.0.1
       with:
-        security_control: registry.jit.io/control-gitleaks-alpine:main
-        security_control_output_file: /tmp/report.json
+        security_control: registry.jit.io/control-trufflehog-alpine:not-hardened-sc-20166-research-and-integrate-trufflehog
+        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
         
   static-code-analysis-csharp:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-csharp' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -142,4 +142,14 @@ jobs:
       uses: jitsecurity-controls/jit-github-action@v4.0.1
       with:
         security_control: registry.jit.io/control-semgrep-alpine:main
+  trufflehog-secret-detection:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'trufflehog-secret-detection' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-secret-detection'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 20
+    steps:
+    - name: trufflehog
+      uses: jitsecurity-controls/jit-github-action@v3.0.1
+      with:
+        security_control: registry.jit.io/control-trufflehog-alpine:not-hardened-sc-20166-research-and-integrate-trufflehog
+        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
         
