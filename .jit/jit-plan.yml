@@ -15,3 +15,12 @@ items:
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
+
+override:
+  workflows:
+    secret-detection:
+      jobs:
+        secret-detection:
+          enabled: false
+        trufflehog-secret-detection:
+          enabled: true
