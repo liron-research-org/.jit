@@ -36,4 +36,7 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
+  - name: Set desired branch protection configuration
+    uses: >-
+      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
 
