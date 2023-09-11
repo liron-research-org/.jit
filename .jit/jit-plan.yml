@@ -24,4 +24,7 @@ items:
   - name: Enable multi-factor authentication for members
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
+  - name: There are no GitHub dormant users
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
 
