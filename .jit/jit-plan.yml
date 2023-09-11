@@ -8,6 +8,9 @@ references:
   - https://www.jit.io
 tags: []
 items:
+  - name: Protect code changes by properly setting branch protection
+    uses: >-
+      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
@@ -15,7 +18,7 @@ items:
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Protect code changes by properly setting branch protection
+  - name: Limit creation of public repos
     uses: >-
-      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
+      jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
 
