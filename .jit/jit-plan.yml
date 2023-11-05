@@ -28,9 +28,6 @@ items:
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
-  - name: Limit creation of public repos
-    uses: >-
-      jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Protect code changes made by workflows
