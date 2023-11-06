@@ -8,6 +8,9 @@ references:
   - https://www.jit.io
 tags: []
 items:
+  - name: Limit number of organization admins
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-max-admins.yml@latest
   - name: Verify that Github Branch Protection is properly configured
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
@@ -24,7 +27,7 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-  - name: Limit number of organization admins
+  - name: Limit user permissions to follow least privilege principle
     uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-max-admins.yml@latest
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
 
