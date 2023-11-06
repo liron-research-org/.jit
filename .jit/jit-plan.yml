@@ -36,4 +36,7 @@ items:
   - name: Enable multi-factor authentication for members
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
+  - name: Limit creation of public repos
+    uses: >-
+      jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
 
