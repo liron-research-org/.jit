@@ -8,9 +8,6 @@ references:
   - https://www.jit.io
 tags: []
 items:
-  - name: There are no dormant GitHub users
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
   - name: Enable multi-factor authentication for members
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
