@@ -41,7 +41,7 @@ jobs:
     - name: syft-alpine:not-hardened-sc-20862-repo-sbom-control-create-the-sbom
       uses: jitsecurity-controls/jit-github-action@v4.0.5
       with:
-        security_control: registry.jit.io/control-syft-alpine:not-hardened-sc-20862-repo-sbom-control-create-the-sbom-control
+        security_control: ghcr.io/jitsecurity-controls/control-syft-alpine:not-hardened-sc-20862-repo-sbom-control-create-the-sbom-control
         
   secret-detection:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-secret-detection'
