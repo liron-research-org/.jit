@@ -45,4 +45,12 @@ items:
   - name: Protect code changes by properly setting branch protection
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
-
+override:
+  workflows:
+    sbom:
+      jobs:
+        repository-software-bill-of-materials:
+          steps:
+            - name: Run syft
+              uses: >-
+                registry.jit.io/control-syft-alpine:not-hardened-sc-20862-repo-sbom-control-create-the-sbom-control
