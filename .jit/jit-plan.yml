@@ -56,4 +56,4 @@ override:
         repository-software-bill-of-materials:
           steps:
           - name: Run syft
-            uses: registry.jit.io/control-syft-alpine:not-hardened-sc-20862-repo-sbom-control-create-the-sbom-control
+            uses: ghcr.io/jitsecurity-controls/control-syft-alpine:not-hardened-sc-20862-repo-sbom-control-create-the-sbom-control
