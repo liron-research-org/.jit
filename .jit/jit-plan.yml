@@ -45,11 +45,3 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-override:
-  workflows:
-    sbom:
-      jobs:
-        repository-software-bill-of-materials:
-          steps:
-            - name: Run syft
-              uses: ghcr.io/jitsecurity-controls/control-syft-alpine:latest
