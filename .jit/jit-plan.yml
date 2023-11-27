@@ -52,4 +52,4 @@ override:
         repository-software-bill-of-materials:
           steps:
             - name: Run syft
-              uses: ghcr.io/jitsecurity-controls/control-syft-alpine:latest
+              uses: registry.jit.io/jitsecurity-controls/control-syft-alpine:latest
