@@ -53,4 +53,4 @@ override:
           steps:
             - name: Run syft
               uses: >-
-                ghcr.io/jitsecurity-controls/control-syft-alpine:not-hardened-sc-20862-repo-sbom-control-create-the-sbom-control
+                ghcr.io/jitsecurity-controls/control-syft-alpine:latest
