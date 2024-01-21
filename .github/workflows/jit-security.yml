@@ -52,7 +52,7 @@ jobs:
     - name: trivy-dotnet
       uses: jitsecurity-controls/jit-github-action@v4.0.6
       with:
-        security_control: registry.jit.io/control-trivy-dotnet-slim:main
+        security_control: registry.jit.io/control-trivy-dotnet-slim:not-hardened-sc-22694-trivy-dotnet-scan-for-vulnerabilities-and
         
   software-component-analysis-go:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-go' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
