@@ -84,5 +84,5 @@ jobs:
     - name: trivy-dotnet
       uses: jitsecurity-controls/jit-github-action@v4.0.6
       with:
-        security_control: registry.jit.io/control-trivy-dotnet-slim:main
+        security_control: registry.jit.io/control-trivy-dotnet-slim:test-tests
         
