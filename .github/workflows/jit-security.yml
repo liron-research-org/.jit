@@ -20,7 +20,7 @@ jobs:
     - name: enrichment
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-enrichment-slim:main
+        security_control: registry.jit.io/control-enrichment-slim:sc-23149-semgrep-control-add-new-java-rule-for-poc
         
   remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
@@ -114,7 +114,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:sc-23149-semgrep-control-add-new-java-rule-for-poc
         
   static-code-analysis-js:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-js' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
