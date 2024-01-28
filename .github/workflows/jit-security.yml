@@ -84,7 +84,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-main
         
   static-code-analysis-csharp:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-csharp' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -94,7 +94,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-main
         
   static-code-analysis-go:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-go' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -104,7 +104,7 @@ jobs:
     - name: gosec
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-gosec-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-gosec-alpine:not-hardened-main
         
   static-code-analysis-java:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-java' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -124,7 +124,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-main
         
   static-code-analysis-kotlin:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-kotlin' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -134,7 +134,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-main
         
   static-code-analysis-php:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-php' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -144,7 +144,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-main
         
   static-code-analysis-python-semgrep:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-python-semgrep' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -154,7 +154,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-main
         
   static-code-analysis-ruby:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-ruby' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -164,7 +164,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-main
         
   static-code-analysis-rust:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-rust' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -174,7 +174,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-main
         
   static-code-analysis-scala:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-scala' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -184,7 +184,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-main
         
   static-code-analysis-swift:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-swift' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -194,5 +194,5 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-print-git-config
+        security_control: registry.jit.io/control-semgrep-alpine:not-hardened-main
         
