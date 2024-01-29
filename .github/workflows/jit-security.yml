@@ -30,7 +30,7 @@ jobs:
     - name: gitleaks
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-gitleaks-alpine:not-hardened-sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-gitleaks-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
         security_control_output_file: /tmp/report.json
         
   enrich:
