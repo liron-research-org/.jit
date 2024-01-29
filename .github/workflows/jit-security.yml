@@ -51,7 +51,7 @@ jobs:
     - name: kubescape
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-kubescape-slim:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-kubescape-slim:not-hardened-sc-23029-ovo-support-scanning-only-diff-in-prs
         security_control_output_file: /code/results.json
         
   iac-misconfig-detection-pulumi:
