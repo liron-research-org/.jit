@@ -20,7 +20,7 @@ jobs:
     - name: trivy
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-trivy-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-trivy-alpine:main
         
   enrich:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-enrichment-code'
@@ -40,7 +40,7 @@ jobs:
     - name: kics
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-kics-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-kics-alpine:main
         security_control_output_file: /code/jit-report/results.json
         
   iac-misconfig-detection-kubernetes:
@@ -51,7 +51,7 @@ jobs:
     - name: kubescape
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-kubescape-slim:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-kubescape-slim:main
         security_control_output_file: /code/results.json
         
   iac-misconfig-detection-pulumi:
@@ -62,7 +62,7 @@ jobs:
     - name: kics
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-kics-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-kics-alpine:main
         security_control_output_file: /code/jit-report/results.json
         
   iac-misconfig-detection-terraform:
@@ -73,7 +73,7 @@ jobs:
     - name: kics
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-kics-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-kics-alpine:main
         security_control_output_file: /code/jit-report/results.json
         
   remediation-pr:
@@ -95,7 +95,7 @@ jobs:
     - name: gitleaks
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-gitleaks-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-gitleaks-alpine:main
         security_control_output_file: /tmp/report.json
         
   software-component-analysis-go:
@@ -106,7 +106,7 @@ jobs:
     - name: nancy
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-nancy-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-nancy-alpine:main
         
   software-component-analysis-js:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-js' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
@@ -116,7 +116,7 @@ jobs:
     - name: npm-audit
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-npm-audit-slim:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-npm-audit-slim:main
         security_control_output_file: /code/jit-report/enriched-audit-results.json
         
   software-component-analysis-php:
@@ -127,7 +127,7 @@ jobs:
     - name: osv-scanner
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-osv-scanner-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-osv-scanner-alpine:main
         security_control_output_file: /code/jit-report/osv-scanner-results.json
         
   software-component-analysis-python:
@@ -138,7 +138,7 @@ jobs:
     - name: osv-scanner
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-osv-scanner-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-osv-scanner-alpine:main
         security_control_output_file: /code/jit-report/enriched-osv-scanner-results.json
         
   static-code-analysis-c-cpp:
@@ -149,7 +149,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-csharp:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-csharp' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -159,7 +159,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-go:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-go' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -169,7 +169,7 @@ jobs:
     - name: gosec
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-gosec-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-gosec-alpine:main
         
   static-code-analysis-java:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-java' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -179,7 +179,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-js:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-js' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -189,7 +189,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-kotlin:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-kotlin' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -199,7 +199,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-php:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-php' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -209,7 +209,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-python-semgrep:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-python-semgrep' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -219,7 +219,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-ruby:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-ruby' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -229,7 +229,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-rust:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-rust' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -239,7 +239,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-scala:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-scala' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -249,7 +249,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-swift:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-swift' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -259,5 +259,5 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@ssh-test
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
