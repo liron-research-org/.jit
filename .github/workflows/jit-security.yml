@@ -30,7 +30,7 @@ jobs:
     - name: enrichment
       uses: jitsecurity-controls/jit-github-action@sc-23029-ovo-support-scanning-only-diff-in-prs
       with:
-        security_control: registry.jit.io/control-enrichment-slim:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-enrichment-slim:main
         
   iac-misconfig-detection-cloudformation:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cloudformation' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
@@ -51,7 +51,7 @@ jobs:
     - name: kubescape
       uses: jitsecurity-controls/jit-github-action@sc-23029-ovo-support-scanning-only-diff-in-prs
       with:
-        security_control: registry.jit.io/control-kubescape-slim:sc-23029-ovo-support-scanning-only-diff-in-prs
+        security_control: registry.jit.io/control-kubescape-slim:main
         security_control_output_file: /code/results.json
         
   iac-misconfig-detection-pulumi:
