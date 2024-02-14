@@ -1,6 +1,5 @@
 name: My plan
 level: beginner
-update_id: 6e4989e9-e7f0-4c69-9044-961f39e450c4
 author: Jit
 version: 0.1
 owners:
@@ -10,34 +9,47 @@ references:
 tags: []
 items:
   - name: There are no dormant GitHub users
-    uses: jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
   - name: Limit user permissions to follow least privilege principle
-    uses: jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
   - name: Limit number of organization admins
-    uses: jitsecurity-controls/jit-plans/items/access_management/item-access-management-max-admins.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-max-admins.yml@latest
   - name: Enable multi-factor authentication for members
-    uses: jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
   - name: Protect code changes by properly setting branch protection
-    uses: jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
   - name: Verify that Github Branch Protection is properly configured
-    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Set desired branch protection configuration
-    uses: jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
-    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Limit creation of public repos
-    uses: jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
   - name: Detect GitHub misconfigurations
-    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
   - name: Scan Kubernetes configuration files
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Protect code changes made by workflows
-    uses: jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
+
