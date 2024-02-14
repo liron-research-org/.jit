@@ -149,7 +149,7 @@ jobs:
     - name: trivy-dotnet
       uses: jitsecurity-controls/jit-github-action@v4.1.0
       with:
-        security_control: registry.jit.io/control-trivy-dotnet-slim:sc-22694-trivy-dotnet-scan-for-vulnerabilities-and
+        security_control: registry.jit.io/control-trivy-dotnet-slim:not-hardened-sc-22694-trivy-dotnet-scan-for-vulnerabilities-and-slim-instrumented
         
   static-code-analysis-c-cpp:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-c-cpp' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
