@@ -35,6 +35,8 @@ items:
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+  - name: Scan your code dependencies for vulnerabilities (SCA)
+    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Limit creation of public repos
     uses: >-
       jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
@@ -52,12 +54,6 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
-  - name: Scan your code for license violations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
-
 override:
   workflows:
     license-compliance:
@@ -65,4 +61,5 @@ override:
         license-compliance-checker:
           steps:
             - name: Run license checker
-              uses: registry.jit.io/control-license-checker-alpine:not-hardened-test-filtering
+              uses: >-
+                registry.jit.io/control-license-checker-alpine:not-hardened-test-filtering
