@@ -65,4 +65,4 @@ override:
           steps:
             - name: Run license checker
               uses: >-
-                registry.jit.io/control-license-checker-alpine:not-hardened-test-filtering
+                registry.jit.io/control-license-checker-alpine:not-hardened-sc-23506-license-checker-implement-usage-of-reversed
