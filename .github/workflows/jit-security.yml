@@ -81,10 +81,10 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 60
     steps:
-    - name: license-checker-alpine:not-hardened-test-new
+    - name: license-checker-alpine:not-hardened-sc-24019-license-checker-retry-subprocesses-on
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-license-checker-alpine:not-hardened-test-new-version
+        security_control: registry.jit.io/control-license-checker-alpine:not-hardened-sc-24019-license-checker-retry-subprocesses-on-exit
         
   remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
