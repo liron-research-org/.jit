@@ -64,7 +64,7 @@ override:
         license-compliance-checker:
           steps:
             - name: Run license checker
-              uses: registry.jit.io/control-license-checker-alpine:latest
+              uses: registry.jit.io/control-license-checker-alpine:not-hardened-test-new-version
     sast:
       jobs:
         static-code-analysis-kotlin:
