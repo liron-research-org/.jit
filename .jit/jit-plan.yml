@@ -17,9 +17,6 @@ items:
   - name: Limit number of organization admins
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-max-admins.yml@latest
-  - name: Enable multi-factor authentication for members
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
   - name: Protect code changes by properly setting branch protection
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
