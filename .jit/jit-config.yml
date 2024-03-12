@@ -8,7 +8,3 @@ resource_management:
    job_execution_timeout_minutes: 60
    pr_job_setup_timeout_minutes: 60
    pr_job_execution_timeout_minutes: 60
-license-compliance:
-  deny_list:
-    - Apache*
-    - MIT
