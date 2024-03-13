@@ -54,6 +54,9 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
+  - name: Scan your code for license violations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
 override:
   workflows:
     license-compliance:
@@ -62,7 +65,7 @@ override:
           steps:
             - name: Run license checker
               uses: >-
-                registry.jit.io/control-license-checker-alpine:not-hardened-sc-24019-license-checker-retry-subprocesses-on-exit
+                registry.jit.io/control-license-checker-alpine:not-hardened-sc-24026-license-checker-map-osv-scanner-128-to-0
     sast:
       jobs:
         static-code-analysis-kotlin:
