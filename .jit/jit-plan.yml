@@ -17,6 +17,9 @@ items:
   - name: Limit number of organization admins
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-max-admins.yml@latest
+  - name: Enable multi-factor authentication for members
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
   - name: Protect code changes by properly setting branch protection
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
@@ -51,12 +54,6 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-  - name: Enable multi-factor authentication for members
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
-  - name: Scan your code for license violations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
 override:
   workflows:
     license-compliance:
@@ -64,7 +61,8 @@ override:
         license-compliance-checker:
           steps:
             - name: Run license checker
-              uses: registry.jit.io/control-license-checker-alpine:not-hardened-sc-24019-license-checker-retry-subprocesses-on-exit
+              uses: >-
+                registry.jit.io/control-license-checker-alpine:not-hardened-sc-24019-license-checker-retry-subprocesses-on-exit
     sast:
       jobs:
         static-code-analysis-kotlin:
