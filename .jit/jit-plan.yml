@@ -8,9 +8,6 @@ references:
   - https://www.jit.io
 tags: []
 items:
-  - name: There are no dormant GitHub users
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
   - name: Limit user permissions to follow least privilege principle
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
