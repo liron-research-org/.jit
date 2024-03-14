@@ -26,9 +26,6 @@ items:
   - name: Set desired branch protection configuration
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
@@ -51,9 +48,6 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-  - name: Scan your code for license violations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
   - name: Verify that MFA for your GitHub organization is enabled
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
