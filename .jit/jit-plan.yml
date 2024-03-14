@@ -54,9 +54,6 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-  - name: Scan your code for license violations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
 override:
   workflows:
     license-compliance:
