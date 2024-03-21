@@ -12,16 +12,6 @@ permissions:
   id-token: write
 
 jobs:
-  docker-scan:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'docker-scan' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-docker-scan'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 60
-    steps:
-    - name: trivy
-      uses: jitsecurity-controls/jit-github-action@v4.2.1
-      with:
-        security_control: registry.jit.io/control-trivy-alpine:main
-        
   enrich:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-enrichment-code'
     runs-on: ubuntu-20.04
@@ -31,17 +21,6 @@ jobs:
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
         security_control: registry.jit.io/control-enrichment-slim:main
-        
-  iac-misconfig-detection-cloudformation:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cloudformation' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 60
-    steps:
-    - name: kics
-      uses: jitsecurity-controls/jit-github-action@v4.2.1
-      with:
-        security_control: registry.jit.io/control-kics-alpine:main
-        security_control_output_file: /code/jit-report/results.json
         
   iac-misconfig-detection-kubernetes:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-kubernetes' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-kubernetes-iac-misconfiguration-detection'
@@ -54,37 +33,15 @@ jobs:
         security_control: registry.jit.io/control-kubescape-slim:main
         security_control_output_file: /code/results.json
         
-  iac-misconfig-detection-pulumi:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-pulumi' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 60
-    steps:
-    - name: kics
-      uses: jitsecurity-controls/jit-github-action@v4.2.1
-      with:
-        security_control: registry.jit.io/control-kics-alpine:main
-        security_control_output_file: /code/jit-report/results.json
-        
-  iac-misconfig-detection-terraform:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-terraform' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 60
-    steps:
-    - name: kics
-      uses: jitsecurity-controls/jit-github-action@v4.2.1
-      with:
-        security_control: registry.jit.io/control-kics-alpine:main
-        security_control_output_file: /code/jit-report/results.json
-        
   license-compliance-checker:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'license-compliance-checker' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-license-compliance'
     runs-on: ubuntu-20.04
     timeout-minutes: 60
     steps:
-    - name: license-checker-alpine:not-hardened-sc-23989-license-checker-aggregate-multiple-findings
+    - name: license-checker-alpine:not-hardened-sc-24026-license-checker-map-osv-scanner-128-to
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-license-checker-alpine:not-hardened-sc-23989-license-checker-aggregate-multiple-findings
+        security_control: registry.jit.io/control-license-checker-alpine:not-hardened-sc-24026-license-checker-map-osv-scanner-128-to-0
         
   remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
@@ -118,6 +75,16 @@ jobs:
       with:
         security_control: registry.jit.io/control-nancy-alpine:main
         
+  software-component-analysis-java:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-java' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+    steps:
+    - name: osv-scanner
+      uses: jitsecurity-controls/jit-github-action@v4.2.1
+      with:
+        security_control: registry.jit.io/control-osv-scanner-alpine:main
+        
   software-component-analysis-js:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-js' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
     runs-on: ubuntu-20.04
@@ -138,7 +105,6 @@ jobs:
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
         security_control: registry.jit.io/control-osv-scanner-alpine:main
-        security_control_output_file: /code/jit-report/osv-scanner-results.json
         
   software-component-analysis-python:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-python' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
@@ -149,7 +115,6 @@ jobs:
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
         security_control: registry.jit.io/control-osv-scanner-alpine:main
-        security_control_output_file: /code/jit-report/enriched-osv-scanner-results.json
         
   static-code-analysis-c-cpp:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-c-cpp' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
