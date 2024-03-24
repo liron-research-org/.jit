@@ -83,7 +83,7 @@ jobs:
     - name: osv-scanner
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-osv-scanner-alpine:sc-24154-osv-scanner-support-for-java-maven
+        security_control: registry.jit.io/control-osv-scanner-alpine:not-hardened-sc-24154-osv-scanner-support-for-java-maven
         
   software-component-analysis-js:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-js' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
@@ -104,7 +104,7 @@ jobs:
     - name: osv-scanner
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-osv-scanner-alpine:sc-24154-osv-scanner-support-for-java-maven
+        security_control: registry.jit.io/control-osv-scanner-alpine:not-hardened-sc-24154-osv-scanner-support-for-java-maven
         
   software-component-analysis-python:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-python' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
@@ -114,7 +114,7 @@ jobs:
     - name: osv-scanner
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-osv-scanner-alpine:sc-24154-osv-scanner-support-for-java-maven
+        security_control: registry.jit.io/control-osv-scanner-alpine:not-hardened-sc-24154-osv-scanner-support-for-java-maven
         
   static-code-analysis-c-cpp:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-c-cpp' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
