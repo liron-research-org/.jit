@@ -20,7 +20,7 @@ jobs:
     - name: enrichment
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-enrichment-slim:main
+        security_control: registry.jit.io/control-enrichment-slim:sc-22695-trivy-dotnet-integration-tests-workflow-enrichment
         
   iac-misconfig-detection-kubernetes:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-kubernetes' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-kubernetes-iac-misconfiguration-detection'
