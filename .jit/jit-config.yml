@@ -11,5 +11,4 @@ resource_management:
 license-compliance:
   deny_list:
     - GPL*
-    - MIT
   dual_license: permissive
