@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "description": "Install serverless dependencies",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "serverless": "3.33.0",
+    "serverless-python-requirements": "~5.1.1"
+  },
+  "devDependencies": {
+    "dynamo-data-transform": "^0.1.8"
+  }
+}
