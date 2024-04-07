@@ -12,5 +12,4 @@ license-compliance:
   deny_list:
     - MIT*
     - Apache*
-  invalid:
-    - hi
+  dual_license: permissive
