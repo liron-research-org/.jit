@@ -11,4 +11,3 @@ resource_management:
 license-compliance:
   deny_list:
     - GPL*
-  dual_license: permissive
