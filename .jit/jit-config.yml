@@ -10,6 +10,6 @@ resource_management:
    pr_job_execution_timeout_minutes: 60
 license-compliance:
   deny_list:
-    - MIT*
-    - Apache*
+    - GPL*
+    - MIT
   dual_license: permissive
