@@ -4,9 +4,9 @@ github_branch_protection:
     required_status_checks: []
 resource_management:
  runner_config:
-   job_setup_timeout_minutes: 60
-   job_execution_timeout_minutes: 60
-   pr_job_setup_timeout_minutes: 60
-   pr_job_execution_timeout_minutes: 60
+   job_setup_timeout_minutes: 3
+   job_execution_timeout_minutes: 3
+   pr_job_setup_timeout_minutes: 3
+   pr_job_execution_timeout_minutes: 3
 license-compliance:
   dual_license: permissive
