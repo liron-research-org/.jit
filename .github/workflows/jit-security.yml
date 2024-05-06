@@ -134,7 +134,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:intentional-timeout
         
   static-code-analysis-csharp:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-csharp' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -144,7 +144,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:intentional-timeout
         
   static-code-analysis-go:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-go' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -164,7 +164,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:intentional-timeout
         
   static-code-analysis-js:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-js' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -174,7 +174,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:intentional-timeout
         
   static-code-analysis-kotlin:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-kotlin' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -194,7 +194,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:intentional-timeout
         
   static-code-analysis-python-semgrep:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-python-semgrep' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -204,7 +204,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:intentional-timeout
         
   static-code-analysis-ruby:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-ruby' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -214,7 +214,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:intentional-timeout
         
   static-code-analysis-rust:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-rust' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -224,7 +224,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:intentional-timeout
         
   static-code-analysis-scala:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-scala' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -234,7 +234,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:intentional-timeout
         
   static-code-analysis-swift:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-swift' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -244,5 +244,5 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:main
+        security_control: registry.jit.io/control-semgrep-alpine:intentional-timeout
         
