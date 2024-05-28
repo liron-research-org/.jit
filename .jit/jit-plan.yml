@@ -40,6 +40,9 @@ items:
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+  - name: Scan your code for license violations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
   - name: Verify that MFA for your GitHub organization is enabled
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
@@ -48,9 +51,9 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-  - name: Scan your code for license violations
+  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
     uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
 override:
   workflows:
     license-compliance:
