@@ -157,7 +157,7 @@ jobs:
     - name: osv-scanner
       uses: jitsecurity-controls/jit-github-action@v4.2.2
       with:
-        security_control: registry.jit.io/control-osv-scanner-alpine:main
+        security_control: registry.jit.io/control-osv-scanner-java-ubuntu:sc-25448-osv-gradle-new-basic-control-with-multiple
         
   software-component-analysis-trivy-csharp:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-trivy-csharp' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
