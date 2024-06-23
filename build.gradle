@@ -17,7 +17,7 @@ protobuf {
     artifact = "com.google.protobuf:protoc:3.17.3"
   }
   plugins {
-    grpc {
+    grpc { 
       // First version with Mac M1 support 
       artifact = 'io.grpc:protoc-gen-grpc-java:1.42.2'
     } 
