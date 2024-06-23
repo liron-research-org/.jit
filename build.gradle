@@ -20,7 +20,7 @@ protobuf {
     grpc {
       // First version with Mac M1 support 
       artifact = 'io.grpc:protoc-gen-grpc-java:1.42.2'
-    }
+    } 
   }
   generateProtoTasks { 
     all()*.plugins {
