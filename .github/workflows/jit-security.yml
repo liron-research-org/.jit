@@ -20,7 +20,7 @@ jobs:
     - name: enrichment
       uses: jitsecurity-controls/jit-github-action@v4.2.2
       with:
-        security_control: registry.jit.io/control-enrichment-slim:latest
+        security_control: registry.jit.io/control-enrichment-slim:main
         
   iac-misconfig-detection-cloudformation:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cloudformation' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
@@ -247,7 +247,7 @@ jobs:
     - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v4.2.2
       with:
-        security_control: registry.jit.io/control-semgrep-alpine:latest
+        security_control: registry.jit.io/control-semgrep-alpine:main
         
   static-code-analysis-php:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-php' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
