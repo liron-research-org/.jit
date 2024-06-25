@@ -54,22 +54,3 @@ items:
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-override:
-  workflows:
-    license-compliance:
-      jobs:
-        license-compliance-checker:
-          steps:
-            - name: Run license checker
-              uses: >-
-                registry.jit.io/control-license-checker-alpine:not-hardened-sc-24026-license-checker-map-osv-scanner-128-to-0
-    sast:
-      jobs:
-        static-code-analysis-kotlin:
-          steps:
-            - name: Run semgrep kotlin
-              uses: registry.jit.io/control-semgrep-alpine:latest
-              with:
-                args: >-
-                  --json --config=/semgrep-kotlin-config.yml --metrics=off
-                  ${WORK_DIR:-.} --exclude-rule=sql-injection-2
