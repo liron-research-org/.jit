@@ -2,7 +2,7 @@ name: My plan
 level: beginner
 author: Jit
 version: 0.1
-owners:
+owners: 
   default: null
 references:
   - https://www.jit.io
