@@ -59,6 +59,10 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/Web Application
       Security/item-insecure-design.yml@latest
+  - name: Injection
+    uses: >-
+      jitsecurity-controls/jit-plans/items/Web Application
+      Security/item-injection.yml@latest
 override:
   workflows:
     owasp-top-10:
