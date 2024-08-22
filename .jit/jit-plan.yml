@@ -48,15 +48,17 @@ items:
       jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Protect code changes made by workflows
-    uses: >-
-      jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
   - name: Security Misconfiguration
     uses: >-
       jitsecurity-controls/jit-plans/items/Web Application
       Security/item-security-misconfiguration.yml@latest
-
-
+  - name: Protect code changes made by workflows
+    uses: >-
+      jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
+  - name: Insecure Design
+    uses: >-
+      jitsecurity-controls/jit-plans/items/Web Application
+      Security/item-insecure-design.yml@latest
 override:
   workflows:
     owasp-top-10:
