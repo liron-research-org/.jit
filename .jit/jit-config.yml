@@ -12,15 +12,3 @@ applications:
   type: web
   username: username
   username_css_selector: ''
-github_branch_protection:
-  organization:
-    amount_of_required_reviews: 1
-    required_status_checks: []
-license-compliance:
-  dual_license: permissive
-resource_management:
-  runner_config:
-    job_execution_timeout_minutes: 3
-    job_setup_timeout_minutes: 3
-    pr_job_execution_timeout_minutes: 3
-    pr_job_setup_timeout_minutes: 3
