@@ -63,6 +63,10 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/Web Application
       Security/item-injection.yml@latest
+  - name: Cryptographic Failures
+    uses: >-
+      jitsecurity-controls/jit-plans/items/Web Application
+      Security/item-cryptographic-failures.yml@latest
 override:
   workflows:
     owasp-top-10:
