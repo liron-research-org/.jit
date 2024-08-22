@@ -26,6 +26,9 @@ items:
   - name: Set desired branch protection configuration
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
+  - name: Scan your code for vulnerabilities (SAST)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Limit creation of public repos
@@ -48,16 +51,8 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
+  - name: Security Misconfiguration
     uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+      jitsecurity-controls/jit-plans/items/Web Application
+      Security/item-security-misconfiguration.yml@latest
 
-override:
-  workflows:
-    owasp-top-10:
-      jobs:
-        owasp-top-10-detection:
-          steps:
-            - name: Run ZAP
-              uses: >-
-                registry.jit.io/zap:sc-26779-jit-plans-zap-control-research-deprecation
