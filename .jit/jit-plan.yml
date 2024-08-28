@@ -29,6 +29,10 @@ items:
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+  - name: Cryptographic Failures
+    uses: >-
+      jitsecurity-controls/jit-plans/items/Web Application
+      Security/item-cryptographic-failures.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Limit creation of public repos
@@ -43,6 +47,14 @@ items:
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+  - name: Injection
+    uses: >-
+      jitsecurity-controls/jit-plans/items/Web Application
+      Security/item-injection.yml@latest
+  - name: Insecure Design
+    uses: >-
+      jitsecurity-controls/jit-plans/items/Web Application
+      Security/item-insecure-design.yml@latest
   - name: Scan your code for license violations
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
@@ -55,18 +67,9 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-  - name: Insecure Design
+  - name: Scan your web application for vulnerabilities
     uses: >-
-      jitsecurity-controls/jit-plans/items/Web Application
-      Security/item-insecure-design.yml@latest
-  - name: Injection
-    uses: >-
-      jitsecurity-controls/jit-plans/items/Web Application
-      Security/item-injection.yml@latest
-  - name: Cryptographic Failures
-    uses: >-
-      jitsecurity-controls/jit-plans/items/Web Application
-      Security/item-cryptographic-failures.yml@latest
+      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
 override:
   workflows:
     owasp-top-10:
