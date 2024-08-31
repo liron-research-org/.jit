@@ -13,7 +13,7 @@ applications:
   type: web
   username: username
   username_css_selector: ''
-- api_domain: juice-shop.herokuapp.com
+- api_domain: new.juice-shop.herokuapp.com
   application_name: some-app-two
   authentication_key: password
   authentication_mode: selenium
