@@ -19,7 +19,7 @@ applications:
   authentication_mode: selenium
   authentication_value: ${{ jit_secrets.some-app_web }}
   exclude_paths: []
-  login_page_url: https://juice-shop.herokuapp.com/#/login
+  login_page_url: https://juice-shop.herokuapp.ssscom/#/loginasdaj
   password: encrypted$AQICAHi8oKBeWufpQyBhS/I7j+xeXOszTLo37NZpVZLtG7GGBQEkfcDQGv3JqOP5dB+bPgiEAAAAZDBiBgkqhkiG9w0BBwagVTBTAgEAME4GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMcCsoIIvIDX1NSYOdAgEQgCFeUZEqhzPCd8zg3egIX8vrV6uqUw2PWPdqTdCpVVZfilU=
   password_css_selector: ''
   password_ref: ${{ jit_secrets.web_scan_password }}
