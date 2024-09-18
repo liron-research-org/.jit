@@ -35,3 +35,11 @@ applications:
   exclude_paths: []
   target_url: https://juice-shop.herokuapp.com
   type: web
+- api_domain: custom.api
+  application_name: custom-header-app
+  authentication_key: Bearer
+  authentication_mode: header-custom
+  authentication_value: ${{ jit_secrets.custom-header-app_web }}
+  exclude_paths: []
+  target_url: https://juice-shop.herokuapp.com
+  type: web
