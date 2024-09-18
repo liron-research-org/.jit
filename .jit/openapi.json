@@ -1,0 +1,254 @@
+{
+  "openapi": "3.0.0",
+  "components": {
+    "schemas": {
+      "EmptyResponse": {
+        "title": "EmptyResponse",
+        "type": "object",
+        "properties": {}
+      },
+      "ForbiddenError": {
+        "title": "ForbiddenErrorResponse",
+        "type": "object",
+        "properties": {
+          "error": {
+            "title": "Error code",
+            "description": "Machine readable error code.",
+            "example": "FORBIDDEN",
+            "type": "string"
+          },
+          "message": {
+            "title": "Error message",
+            "description": "Human readable error message.",
+            "example": "Request is missing the required permissions.",
+            "type": "string"
+          },
+          "missing_permissions": {
+            "title": "Missing permissions",
+            "description": "List of missing permissions.",
+            "nullable": true,
+            "example": [
+              "jit.category.write",
+              "jit.category.read"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "error",
+          "message"
+        ]
+      },
+      "GeneralResponseSchema": {
+        "title": "GeneralResponseSchema",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ]
+      },
+      "GenerateInstallationTokenResponse": {
+        "title": "GenerateInstallationTokenResponse",
+        "type": "object",
+        "properties": {
+          "invitation_token": {
+            "title": "Invitation Token",
+            "type": "string"
+          },
+          "invitation_token_key": {
+            "title": "Invitation Token Key",
+            "type": "string"
+          },
+          "state_token": {
+            "title": "State Token",
+            "type": "string"
+          }
+        },
+        "required": [
+          "invitation_token",
+          "invitation_token_key"
+        ]
+      },
+      "UnauthorizedAuthorizerError": {
+        "title": "UnauthorizedAuthorizerErrorResponse",
+        "type": "object",
+        "properties": {
+          "Message": {
+            "title": "Error message",
+            "description": "Human readable error message.\n\n**Important**: This schema does not contain `error` field.",
+            "example": "Unauthorized",
+            "type": "string"
+          }
+        },
+        "required": [
+          "Message"
+        ]
+      },
+      "tenant_id": {
+        "title": "tenant_id",
+        "type": "string"
+      },
+      "Access-Control-Allow-Origin": {
+        "type": "string",
+        "default": "*",
+        "example": "*"
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "info": {
+    "title": "Tenant service",
+    "description": "API for tenant service",
+    "version": "1",
+    "termsOfService": "https://jit.io",
+    "x-base-path": "tenant"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/{tenant_id}/invitation-token": {
+      "post": {
+        "summary": "",
+        "description": "Returns a tenant invitation token",
+        "operationId": "token",
+        "parameters": [
+          {
+            "name": "tenant_id",
+            "in": "path",
+            "description": "The tenant ID",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/tenant_id"
+            }
+          }
+        ],
+        "tags": [
+          "internal"
+        ],
+        "requestBody": {
+          "description": "Generate tenant invitation token request",
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmptyResponse"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Generate tenant invitation token response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerateInstallationTokenResponse"
+                }
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin). - [MDN Link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)",
+                "schema": {
+                  "$ref": "#/components/schemas/Access-Control-Allow-Origin"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedAuthorizerError"
+                }
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin). - [MDN Link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)",
+                "schema": {
+                  "$ref": "#/components/schemas/Access-Control-Allow-Origin"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenError"
+                }
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin). - [MDN Link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)",
+                "schema": {
+                  "$ref": "#/components/schemas/Access-Control-Allow-Origin"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeneralResponseSchema"
+                }
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin). - [MDN Link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)",
+                "schema": {
+                  "$ref": "#/components/schemas/Access-Control-Allow-Origin"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.bandit.jitdev.io/{basePath}",
+      "description": "The service API server",
+      "variables": {
+        "basePath": {
+          "default": "tenant"
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Tenant",
+      "description": "Returns, adds, edits, or remove tenant and preferences data.",
+      "externalDocs": {
+        "url": "https://docs.jit.io/docs",
+        "description": "Learn about managing your tenant in JIT"
+      }
+    }
+  ]
+}
