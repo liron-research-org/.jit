@@ -70,12 +70,3 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-override:
-  workflows:
-    owasp-top-10:
-      jobs:
-        owasp-top-10-detection:
-          steps:
-            - name: Run ZAP
-              uses: >-
-                registry.jit.io/zap:sc-26779-jit-plans-zap-control-research-deprecation
