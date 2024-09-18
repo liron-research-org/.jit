@@ -27,11 +27,11 @@ applications:
   type: web
   username: username
   username_css_selector: ''
-- api_domain: some.api
-  application_name: liron-temp
+- api_domain: some.api.com
+  application_name: test-liron-latest
   authentication_key: Authorization
   authentication_mode: header-bearer
-  authentication_value: ${{ jit_secrets.liron-temp_web }}
+  authentication_value: ${{ jit_secrets.test-liron-latest_web }}
   exclude_paths: []
   target_url: https://juice-shop.herokuapp.com
   type: web
