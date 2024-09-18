@@ -27,3 +27,13 @@ applications:
   type: web
   username: username
   username_css_selector: ''
+- api_domain: api.domain
+  application_name: liron-multi-zap
+  authentication_key: Authorization
+  authentication_mode: header-bearer
+  authentication_value: ${{ jit_secrets.liron-multi-zap_web }}
+  exclude_paths:
+  - first.com
+  - second.com
+  target_url: https://juice-shop.herokuapp.com
+  type: web
