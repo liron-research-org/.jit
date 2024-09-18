@@ -27,21 +27,11 @@ applications:
   type: web
   username: username
   username_css_selector: ''
-- api_domain: api.domain
-  application_name: liron-multi-zap
+- api_domain: some.api
+  application_name: liron-temp
   authentication_key: Authorization
   authentication_mode: header-bearer
-  authentication_value: ${{ jit_secrets.liron-multi-zap_web }}
-  exclude_paths:
-  - first.com
-  - second.com
-  target_url: https://juice-shop.herokuapp.com
-  type: web
-- api_domain: some-api.com
-  application_name: temp-zap
-  authentication_key: Authorization
-  authentication_mode: header-bearer
-  authentication_value: ${{ jit_secrets.temp-zap_web }}
+  authentication_value: ${{ jit_secrets.liron-temp_web }}
   exclude_paths: []
   target_url: https://juice-shop.herokuapp.com
   type: web
