@@ -37,3 +37,11 @@ applications:
   - second.com
   target_url: https://juice-shop.herokuapp.com
   type: web
+- api_domain: some-api.com
+  application_name: temp-zap
+  authentication_key: lironheader
+  authentication_mode: header-custom
+  authentication_value: ${{ jit_secrets.temp-zap_web }}
+  exclude_paths: []
+  target_url: https://juice-shop.herokuapp.com
+  type: web
