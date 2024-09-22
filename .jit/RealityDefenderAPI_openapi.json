@@ -1,0 +1,110 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Reality Defender API",
+    "description": "Comprehensive deepfake scanning with actionable results. Continuous security developed by the world\u2019s top AI research teams. We are Reality Defender, the most trusted DeepFake Detection Platform.\n\nThe Reality Defender API is organized around REST. The API accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.\n\nOur API uses secure authentication, specifically API keys in every API request. In order to obtain the API key, you must first login to your provisioned account, go to your profile page, and select \"Manage API keys\".",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.prd.realitydefender.xyz/",
+      "description": "API Domain"
+    }
+  ],
+  "paths": {
+    "/api/files/aws-presigned": {
+      "post": {
+        "summary": "Get AWS Presigned",
+        "description": "In order to upload a media (video, image, audio) or text file, you can request for a signed URL from the API.\n\nYou must pass in the name of the file that you wish to upload, along with the file size in the request body. Additionally you can pass \"showAudioResult\" to select if the audio for a video being uploaded should also be \\*evaluated.\n\nOnce you have the signed URL, you can use it to PUT the file to Reality Defender (bearer token is not required for the PUT).\n\nThe following formats are supported:\n\n- Video \u2192 .mp4, .mov (max size 100 MB)\n- Image \u2192 .jpg, .png, .jpeg, .gif, .webp (max size 10 MB)\n- Audio \u2192 .flac, .wav, .mp3, .m4a, .aac, .ogg (max size 20 MB)\n- Text \u2192 .txt (max size 5 MB with every 2000 characters considered as one scan)\n    \n\n\\*Note: If you wish to evaluate the audio track from a video, our system will do this automatically (the feature must be enabled for your account). If you run the audio extraction yourself and upload the audio file separately, it may result in data loss and reduce the accuracy of the Audio models.",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "fileName": "filename.extension",
+                "fileSize": 10000,
+                "showAudioResult": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/media/users": {
+      "get": {
+        "summary": "All Media",
+        "description": "Use this endpoint to view all uploaded files along with their corresponding model results (status) and their overall results (overallStatus). The following values are returned: ANALYZING, AUTHENTIC, SUSPICIOUS, FAKE, NOT_APPLICABLE\n\nAdditionally each model also returns a value (finalScore), once calculated, from 0% to 100% fake.\n\nNote that you may use the following optional query parameters:\n\n- startDate: Returns upload data from startDate to now. Use format \u2018yyyy-mm-dd\u2019.\n- endDate: Returns upload data from endDate and older. Use format \u2018yyyy-mm-dd\u2019.\n    \n\nQuery can not contain both startDate and endDate\n\n- size: Used for pagination, if not defined, 1000 items will be returned.\n- submissionDate and requestId: To request the next set of results, include the submissionDate and requestId from lastEvaluatedKey of the last response. There is no more data to load if lastEvaluatedKey is missing.",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/media/users/{requestId}": {
+      "get": {
+        "summary": "Media Detail",
+        "description": "To review the results for only one file, simply pass in the requestID as part of the URL.",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the media request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/upload-history": {
+      "get": {
+        "summary": "Media History",
+        "description": "Use this endpoint to view all upload attempts, along with their corresponding requestId, upload date/time, and upload status (successful or failed upload). An upload can fail for various reasons including going over the upload limit, uploading a file that is too large, or a file format that is not supported.\n\nNote that you may use the following optional query parameters:\n\n- startDate: Returns upload data from startDate to now. Use format \u2018yyyy-mm-dd\u2019.\n- endDate: Returns upload data from endDate and older. Use format \u2018yyyy-mm-dd\u2019.\n    \n\nQuery can not contain both startDate and endDate\n\n- uploaded: Used to filter based on the upload status of the file. If false, returns records where the upload failed. If true, returns records where the upload succeeded.\n    \n- size: Used for pagination, if not defined, 1000 items will be returned.\n    \n- submissionDate and requestId: To request the next set of results, include the submissionDate and requestId from lastEvaluatedKey of the last response. There is no more data to load if lastEvaluatedKey is missing.",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/files/uploads-remaining": {
+      "get": {
+        "summary": "Uploads Remaining",
+        "description": "Use this endpoint to determine how many media assets have been uploaded and how many uploads are still allowed.",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY"
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ]
+}
