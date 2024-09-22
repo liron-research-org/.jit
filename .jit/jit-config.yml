@@ -43,3 +43,15 @@ applications:
   exclude_paths: []
   target_url: https://juice-shop.herokuapp.com
   type: web
+- api_domain: test.api
+  application_name: defender
+  authentication_mode: non-authenticated
+  exclude_paths: []
+  target_url: .jit/RealityDefenderAPI_openapi.json
+  type: api
+- api_domain: test.api
+  application_name: open
+  authentication_mode: non-authenticated
+  exclude_paths: []
+  target_url: .jit/openapi.json
+  type: api
