@@ -8,9 +8,6 @@ FROM python:3.10-alpine3.16
 ARG COMMIT_SHA
 LABEL commit_sha=${COMMIT_SHA}
 
-# Create system group and user
-RUN addgroup --system jit && adduser --system jit-user --ingroup jit
-
 # Install necessary tools and upgrade packages
 RUN apk update && \
     apk add --no-cache curl git jq openssh openssh-client && \
@@ -29,8 +26,6 @@ ENV TRIVY_DB_REPOSITORY=ghcr.io/aquasecurity/trivy-db,public.ecr.aws/aquasecurit
 ENV TRIVY_JAVA_DB_REPOSITORY=ghcr.io/aquasecurity/trivy-java-db,public.ecr.aws/aquasecurity/trivy-java-db
 
 WORKDIR /code
-RUN chown -R jit-user:jit /code && chmod -R 755 /code
-USER jit-user:jit
 RUN git config --global --add safe.directory /code
 
 ENTRYPOINT ["/opt/entrypoint", "trivy"]
