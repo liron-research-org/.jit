@@ -3,6 +3,9 @@ FROM bla/blo:0.0.1
 RUN apk update
 RUN apk add jq
 
+RUN apk update
+RUN apk add jq
+
 RUN apt-get update && apt-get install make
 
 COPY --from=entrypoint-tag /entrypoint /opt/entrypoint
