@@ -4,7 +4,7 @@ RUN apk update
 RUN apk add jq
 
 RUN apk update
-RUN apk add jq
+RUN apk add jq 
 
 RUN apt-get update && apt-get install make
 
