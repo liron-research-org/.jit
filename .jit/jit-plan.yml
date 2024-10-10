@@ -77,9 +77,9 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
 override:
   workflows:
-    license-compliance:
+    docker-scan:
       jobs:
-        license-compliance-checker:
+        docker-scan:
           steps:
-            - name: Run license checker
-              uses: registry.jit.io/control-license-checker-alpine:main
+            - name: Run trivy
+              uses: registry.jit.io/control-trivy-alpine:sc-27287-controls-handle-trivy-internal-db-rate-limit
