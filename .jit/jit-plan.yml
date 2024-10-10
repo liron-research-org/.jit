@@ -51,3 +51,13 @@ items:
     uses: jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
   - name: Protect code changes made by workflows
     uses: jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
+
+
+override:
+  workflows:
+    license-compliance:
+      jobs:
+        license-compliance-checker:
+          steps:
+            - name: Run license checker
+              uses: registry.jit.io/control-license-checker-alpine:main
