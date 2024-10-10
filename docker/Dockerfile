@@ -3,7 +3,7 @@ ARG ENTRYPOINT_TAG_NAME=latest
 ARG CONTROL_VERSION
 FROM ghcr.io/jitsecurity-controls/jit-control-entrypoint-alpine:${ENTRYPOINT_TAG_NAME} AS entrypoint-tag
 FROM aquasec/trivy:0.56.1 AS trivy
-FROM python:3.10-alpine3.16
+FROM python:3.10-alpine3.16 
 
 ARG COMMIT_SHA
 LABEL commit_sha=${COMMIT_SHA}
