@@ -31,6 +31,9 @@ items:
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+  - name: Scan your Dockerfiles for vulnerabilities
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Cryptographic Failures
     uses: >-
       jitsecurity-controls/jit-plans/items/Web Application
@@ -72,6 +75,7 @@ items:
   - name: Protect code changes made by workflows
     uses: >-
       jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-  - name: Scan your Dockerfiles for vulnerabilities
+  - name: There are no dormant GitHub users
     uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
+
