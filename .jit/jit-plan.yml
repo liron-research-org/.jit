@@ -75,11 +75,3 @@ items:
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
-override:
-  workflows:
-    docker-scan:
-      jobs:
-        docker-scan:
-          steps:
-            - name: Run trivy
-              uses: registry.jit.io/control-trivy-alpine:sc-27287-refactor-dockerfile-to-use-python-image
