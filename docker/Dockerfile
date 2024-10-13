@@ -16,7 +16,7 @@ RUN apk update && \
 # Copy entrypoint, trivy and config files
 COPY --from=entrypoint-tag /entrypoint /opt/entrypoint
 COPY --from=trivy /usr/local/bin/trivy /usr/local/bin/trivy
-COPY pipeline.yml /opt/pipeline.yml
+COPY pipeline.yml /opt/pipeline.yml 
 COPY metadata.yml /opt/metadata.yml
 COPY ./config/ /opt/
 
