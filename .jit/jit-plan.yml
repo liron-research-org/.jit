@@ -1,5 +1,6 @@
 name: My plan
 level: beginner
+update_id: d2ce7ae0-8525-4681-af22-7099ff9fb78a
 author: Jit
 version: 0.1
 owners:
@@ -9,79 +10,54 @@ references:
 tags: []
 items:
   - name: Limit user permissions to follow least privilege principle
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
   - name: Limit number of organization admins
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-max-admins.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/access_management/item-access-management-max-admins.yml@latest
   - name: Enable multi-factor authentication for members
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
   - name: Scan your API for vulnerabilities
     uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Protect code changes by properly setting branch protection
-    uses: >-
-      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
   - name: Verify that Github Branch Protection is properly configured
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Set desired branch protection configuration
-    uses: >-
-      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Cryptographic Failures
-    uses: >-
-      jitsecurity-controls/jit-plans/items/Web Application
-      Security/item-cryptographic-failures.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/Web Application Security/item-cryptographic-failures.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Limit creation of public repos
-    uses: >-
-      jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
   - name: Detect GitHub misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
   - name: Scan Kubernetes configuration files
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
   - name: Injection
-    uses: >-
-      jitsecurity-controls/jit-plans/items/Web Application
-      Security/item-injection.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/Web Application Security/item-injection.yml@latest
   - name: Insecure Design
-    uses: >-
-      jitsecurity-controls/jit-plans/items/Web Application
-      Security/item-insecure-design.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/Web Application Security/item-insecure-design.yml@latest
   - name: Scan your code for license violations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Security Misconfiguration
-    uses: >-
-      jitsecurity-controls/jit-plans/items/Web Application
-      Security/item-security-misconfiguration.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/Web Application Security/item-security-misconfiguration.yml@latest
   - name: Scan your web application for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
   - name: Protect code changes made by workflows
-    uses: >-
-      jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
-
+    uses: jitsecurity-controls/jit-plans/items/workflow_permissions/item-workflows-protect-code-changes.yml@latest
 override:
   workflows:
     github-misconfiguration-access-management-dormant-users:
       jobs:
         chainbench-access-management-dormant-users:
           steps:
-            - name: Run chain-bench
-              uses: >-
-                registry.jit.io/control-chain-bench-alpine:sc-24120-jit-entrypoint-send-errors-with-new-format
+          - name: Run chain-bench
+            uses: registry.jit.io/control-chain-bench-alpine:sc-24120-jit-entrypoint-send-errors-with-new-format
