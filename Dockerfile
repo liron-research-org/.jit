@@ -1,5 +1,10 @@
 FROM bla/blo:0.0.1
 
+RUN addgroup --system <group>
+RUN adduser --system <user> --ingroup <group>
+USER <user>:<group>
+
+
 RUN apk update
 RUN apk add jq
 
