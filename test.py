@@ -12,7 +12,7 @@ class FalsePositiveCheck499View(VulnerableTemplateView):
     references = ['https://github.com/andresriancho/w3af/pull/499']
 
     def get(self, request, *args, **kwds):
-        context = self.get_context_data()
+        context = self.get_context_data() 
 
         text = request.GET['text']
         text = text.replace('"', '')
