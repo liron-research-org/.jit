@@ -9,7 +9,7 @@ class FalsePositiveCheck499View(VulnerableTemplateView):
                   ' the single quotes which are present in the input.'
     url_path = '499_check.py?text=1'
     false_positive_check = True
-    references = ['https://github.com/andresriancho/w3af/pull/499']
+    references = ['https://github.com/andresriancho/w3af/pull/499'] 
 
     def get(self, request, *args, **kwds):
         context = self.get_context_data() 
